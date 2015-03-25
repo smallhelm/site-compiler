@@ -1,6 +1,6 @@
 {
   "name": "site-compiler",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "yet another static site compiler",
   "main": "index.js",
   "repository": {
@@ -11,5 +11,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/smallhelm/site-compiler/issues"
+  },
+  "dependencies": {
+    "async": "^0.9.0"
   }
 }
