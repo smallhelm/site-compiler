@@ -5,7 +5,7 @@ var mkdirp = require('mkdirp');
 
 var build = function(config, cb){
 	async.each(config.files, function(page, cb){
-		var dest_file = path.normalize(config.public_folder + page.url);
+		var dest_file = path.join(config.public_folder, page.url);
 		async.seq(
 			page.render,
 			function(data, cb){
