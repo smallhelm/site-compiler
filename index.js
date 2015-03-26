@@ -1,11 +1,23 @@
 var fs = require('fs');
+var path = require('path');
 var async = require('async');
+var mkdirp = require('mkdirp');
 
 var build = function(config, cb){
-	async.each(config.pages, function(page, cb){
-		async.seq(page.render, function(data, cb){
-			fs.writeFile(config.public_folder + page.url, data, cb);
-		})(config, cb);
+	async.each(config.files, function(page, cb){
+		var dest_file = path.normalize(config.public_folder + page.url);
+		async.seq(
+			page.render,
+			function(data, cb){
+				mkdirp(path.dirname(dest_file), function(err){
+					if(err){
+						cb(err);
+						return;
+					}
+					fs.writeFile(dest_file, data, cb);
+				});
+			}
+		)(config, cb);
 	}, cb);
 };
 
