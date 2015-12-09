@@ -24,11 +24,11 @@ var build = function(config, cb){
 module.exports = build;
 module.exports.justRun = function(config){
 	var start = (new Date()).getTime();
-	console.log("building", config.domain);
+	console.log("building", config.base_url);
 	build(config, function(err){
 		if(err){
-			console.error("Error building", config.domain, err);
+			console.error("Error building", config.base_url, err);
 		}
-		console.log("built", config.domain, "in", ((new Date()).getTime() - start) + "ms");
+		console.log("built", config.base_url, "in", ((new Date()).getTime() - start) + "ms");
 	});
 };

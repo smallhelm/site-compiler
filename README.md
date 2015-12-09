@@ -7,7 +7,7 @@ yet another static site compiler
 var staticWebsiteBuilder = require('site-compiler');
 
 var config = {
-  domain: 'www.your-domain-name',
+  base_url: 'https://www.your-domain-name',
   public_folder: 'public/', // the file path where the files should be written to
 
   // anything else you'd like to add to the config
